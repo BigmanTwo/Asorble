@@ -28,6 +28,17 @@ public class MainActivity extends AppCompatActivity {
         mList.add("落花");
         ArrayAdapter adapter=new ArrayAdapter(this,android.R.layout.simple_selectable_list_item,mList);
         mSpinner.setAdapter(adapter);
-       
+        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            Toast.makeText(MainActivity.this,mList.get(position),Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
     }
 }
